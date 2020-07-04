@@ -1,38 +1,32 @@
 /*
-   Motor controller for man or machine
+   Motor controller for medium duty motorized platform. 
+	 Communicates with the Sabertooth2x12 motor controller from Dimensional 
+	 Engineering using a serial port.
 
    Based on simpleMotorControlWebPage from Telepresence robot
+
+	 Created by Michael Shiloh
 
   20 June 2020 - MS - incorporated into integrated program
   11 June 2020 - MS - Created
   29 June 2020 - MS - add a timeout for each command
+	04 July 2020 - MS - moved to its own repository
 
   TODO
-  - handle millis overflowing (long = ? seconds)
-  - all those hard coded numbers in motor control
-    should be consts
+  - Handle millis overflowing (long = ? seconds)
+  - All those hard coded numbers in motor control should be consts
+	- Add an example to show how to initialize and control!
 
-*/
+Instructions
 
-
-/*
-   Motor Controller DIP switch (non-lithium battery, simplified serial, single controller, 9600 baud)
+   Set Motor Controller DIP switch:
+	(non-lithium battery, simplified serial, single controller, 9600 baud)
    1 - on
    2 - off
    3 - on
    4 - off
    5 - on
    6 - on
-*/
-
-/* // move this to main
-   Connector pin order
-
-   Software serial to motor controller:
-   1 = GND
-   2 = 5V but through jumper so can disconnect when programming
-   3 = motorControllerRX (Arduino NC)
-   4 = motorControllerTX (Arduino 8) currently A2 white
 */
 
 const long motorTimeOut = 90; // stop after this much time
