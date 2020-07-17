@@ -7,10 +7,6 @@
 
 	 Created by Michael Shiloh
 
-  20 June 2020 - MS - incorporated into integrated program
-  11 June 2020 - MS - Created
-  29 June 2020 - MS - add a timeout for each command
-	04 July 2020 - MS - moved to its own repository
 	15 July 2020 - MS - created library
 
   TODO
@@ -28,6 +24,29 @@ Instructions
    4 - off
    5 - on
    6 - on
+
+Initialize the object with 
+
+	object(rxPin, txPin, timeout);
+
+and then in setup()
+
+	object.init();
+
+Methods provided by this library:
+
+	object.forward(speed); 
+	object.backward(speed);
+	object.left(speed);
+	object.right(speed);
+	object.tick();
+
+If tick() is called, it will check the last time an instruction was
+received and will stop the motors if no new commands were received within the
+time set by the timeout value in milliseconds.
+
+Alternately, motors can be stopped by setting the speed to zero.
+
 */
 
 #ifndef SabertoothMotorController_h

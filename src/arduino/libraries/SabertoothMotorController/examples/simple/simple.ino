@@ -80,17 +80,9 @@ void updateMotors(char inChar) {
     case 'R':
       myMotorController.right(80);
       break;
-    case '+':
-      faster ();
-      break;
-    case '-':
-      slower ();
-      break;
+   
     default:
-      //      stopBothMotors (); do I need this? It will stop after timeout.
+      myMotorController.forward(0);
       Serial.println("invalid message");
   }
 }
-
-void faster() {}
-void slower() {}
